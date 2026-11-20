@@ -24,7 +24,7 @@ equation, not a substitute for executing the simulation. Numerical results
 depend on the recorded solver settings; the default run uses rtol and atol 1e-6.
 
 The run record identifies inputs, model and library fingerprints, engine,
-tolerances, omitted connections and initialization details. Keep it with the CSV.
+tolerances, initial inputs and omitted connections. Keep it with the CSV.
 See [results](results.md) before relying on a trajectory.
 
 For an authored verification example:

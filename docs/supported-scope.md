@@ -11,7 +11,7 @@ recorded settings, initialization and approximation details.
 | Behaviour | Published SysML state machines, or an explicitly configured Wasm driver with fuel and memory limits |
 | Coupling | Sampled coupling at discrete events and requested observations; no continuous crossing-time error bound |
 | Verification | Authored assertions evaluated on executed observations; physical stimuli can wait and assertions read final-time values |
-| Initial values | Authored component-state values become fixed Modelica starts with unit conversion; initialization details remain in the run record |
+| Initial values | Authored component-state values become fixed Modelica starts with unit conversion; class initialization still applies to other states |
 | Evidence | CSV trajectories, JSON run records and per-case verdict records with model and engine provenance |
 
 The included RC and mass-spring-damper examples have analytic reference equations.
@@ -23,6 +23,9 @@ still include local `.mo` classes; the domain RC model uses only supplied parts.
 
 Current limits:
 
+- States without an authored initial value or a fixed class start are not yet
+  individually flagged in the run record. Review the component's initialization
+  assumptions; do not treat an engine-selected default as an authored value.
 - No continuous zero-crossing detection or plant-triggered Wasm callbacks.
   A sampled threshold transition can occur after the continuous crossing.
 - No array/non-scalar SysML occurrences, array or non-Real Modelica inputs,
@@ -39,4 +42,4 @@ Current limits:
 
 Unsupported models, missing inputs and backend failures must produce errors,
 not plausible replacement trajectories or passing verdicts. Retain explicit
-initialization warnings and failed/inconclusive cases when assessing evidence.
+initialization assumptions and failed/inconclusive cases when assessing evidence.

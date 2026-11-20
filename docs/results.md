@@ -5,7 +5,9 @@
 - `rc.csv`: trajectory samples, with time followed by named component variables.
 - `rc.run.json`: the run's model/publication identity, source and library
   fingerprints, actual engine/backend, solver settings, input values,
-  initialization information, omitted connections and execution provenance.
+  initial inputs, omitted connections and execution provenance. States relying
+  on unfixed class starts are not yet individually flagged; review the model's
+  initialization assumptions separately.
 
 Keep both. A plot without its run record loses the information needed to assess
 and reproduce it. Changing a source file during execution invalidates the run.
