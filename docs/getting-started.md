@@ -17,7 +17,7 @@ It imports the supplied Elan8 electronics parts: a 5 V voltage source, a
 10 kΩ resistor, a 100 µF capacitor and ground. The library binds their physics
 to Modelica; you do not write or download a matching Modelica model.
 
-The command writes `rc.csv` and `rc.run.json`. Plot `capacitor.v` against `time`
+The command writes `rc.csv` and `rc.run.json`. Plot `capacitor.v` against `t`
 in the CSV. For these component values, the analytic reference is
 `v(t) = 5 (1 - exp(-t / 1 s)) V`, about 4.966 V at 5 s. That is the reference
 equation, not a substitute for executing the simulation. Numerical results

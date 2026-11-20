@@ -2,8 +2,8 @@
 
 Two small SysML v2 models that Run42 simulates. Each folder is a complete
 workspace: a SysML model that composes parts, and the Modelica file that holds
-the parts' equations. Both have analytic solutions, and
-`crates/run42-cli/tests/examples.rs` checks Run42's results against them.
+the parts' equations. Both have analytic solutions that Run42's numerical
+regressions check against actual simulation results.
 
 | Folder | Model | What it shows |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ folders above still bring their own Modelica; they move onto domain-library part
 
 ## Run them
 
-Set up the engines and SysML library as described in the main README, then:
+Keep the unpacked Run42 installation intact, then run from its directory:
 
 ```bash
 run42 run examples/electrical --root RcCharging::Circuit --t-end 5s --out rc
@@ -60,7 +60,7 @@ Run42 ignores the report view, so one folder holds the model and its document. A
 case with no record in `verdicts.json` shows `not run` in the report, never `pass`.
 Rerun both commands after changing the model: the report shows what the last
 `run42 verify` recorded. The requirement column `verified-by / verdict` needs a
-Doc42 release that includes elan8/doc42#23.
+Doc42 release with Run42 verdict-evidence support.
 
 ## How a model connects to its equations
 
